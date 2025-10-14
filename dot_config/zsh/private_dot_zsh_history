@@ -1,0 +1,163 @@
+: 1760207521:0;ping www.google.com
+: 1760254119:0;hydectl theme import
+: 1760254187:0;sudo pacman -S neovim
+: 1760254206:0;nvim .config/hypr/monitors.conf
+: 1760254231:0;hyprctl monitors
+: 1760254257:0;nvim .config/hypr/monitors.conf
+: 1760254280:0;sudo pacman -S vivaldi
+: 1760255532:0;nvim .config/hypr/keybindings.conf
+: 1760255573:0;bash -c "$(curl -L https://raw.githubusercontent.com/RedBearAK/toshy/main/scripts/bootstrap.sh || wget -O - https://raw.githubusercontent.com/RedBearAK/toshy/main/scripts/bootstrap.sh)"
+: 1760255597:0;sudo pacman -Syu
+: 1760255711:0;bash -c "$(curl -L https://raw.githubusercontent.com/RedBearAK/toshy/main/scripts/bootstrap.sh || wget -O - https://raw.githubusercontent.com/RedBearAK/toshy/main/scripts/bootstrap.sh)"
+: 1760255772:0;nvim .config/hypr/keybindings.conf
+: 1760257520:0;sudo pacman -S chezmoi
+: 1760257535:0;ssh-keygen -t ed25519 -C "ldwarezl@gmail.com" 
+: 1760257544:0;cat ~/.ssh/id_ed25519.pub
+: 1760257601:0;git config --global user.name "DWarez"
+: 1760257611:0;git config --global user.email "ldwarezl@gmail.com"
+: 1760257617:0;nvim .config/hypr/userprefs.conf
+: 1760257704:0;nvim .config/fastfetch/config.jsonc
+: 1760257714:0;ls
+: 1760257719:0;which fastfetch.sh
+: 1760257724:0;nvim /home/dwarez/.local/lib/hyde/fastfetch.sh
+: 1760257782:0;chezmoi init https://github.com/dwarez/dotfiles.git\
+
+: 1760257786:0;nvim
+: 1760257792:0;ll
+: 1760257808:0;chezmoi cd
+: 1760257809:0;ll
+: 1760257811:0;ll dot_config
+: 1760257814:0;nvim
+: 1760257847:0;chezmoi init --apply https://github.com/dwarez/dotfiles.git\
+
+: 1760257851:0;nvim
+: 1760257901:0;nvim .config/nvim/lua/plugins/colorscheme.lua
+: 1760257934:0;nvim
+: 1760257941:0;nvim .config/nvim/lua/plugins/colorscheme.lua
+: 1760257960:0;nvim
+: 1760257963:0;clear
+: 1760257972:0;nvim .config/kitty/theme.conf
+: 1760257996:0;ll
+: 1760258020:0;rm -rf .config/fastfetch/logo
+: 1760258032:0;nvim .config/fastfetch/config.jsonc
+: 1760259961:0;sudo pacman -S telegram-desktop discord
+: 1760259966:0;cava
+: 1760259969:0;sudo pacman -S cava
+: 1760259974:0;cava
+: 1760260083:0;cd Downloads
+: 1760260086:0;git clone https://github.com/rideee/one-dark-telegram.git
+: 1760260669:0;nvim .config/hypr/userprefs.conf
+: 1760267531:0;sort /proc/driver/nvidia/params
+: 1760267569:0;sort /proc/driver/nvidia/params | grep NVreg
+: 1760272015:0;sudo pacman -S ppsspp
+: 1760273116:0;killall ppsspp
+: 1760273123:0;ps ax
+: 1760273129:0;ps ax | grep ppsspp
+: 1760273137:0;kill 195018
+: 1760273144:0;nvim /home/dwarez/.config/ppsspp/PSP/Cheats/ULES01183.ini
+: 1760273711:0;sudo pacman -S steam
+: 1760282281:0;sudo pacman -S spotify
+: 1760282286:0;sudo pacman -S spotify-launcher
+: 1760282428:0;paru -S spicetify-cli
+: 1760283313:0;sudo pacman -S pnpm
+: 1760283810:0;mkdir hack
+: 1760283812:0;cd hack
+: 1760283813:0;ls
+: 1760283814:0;git clone git@github.com:DWarez/pydata_talk.git
+: 1760283821:0;zsh
+: 1760283834:0;git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm\
+
+: 1760283836:0;tmux
+: 1760283841:0;sudo pacman -S tmux
+: 1760283845:0;tmux
+: 1760283916:0;cd
+: 1760283922:0;nvim .config/tmux/tmux.conf
+: 1760283942:0;tmux source .config/tmux/tmux.conf
+: 1760286781:0;nvim .zshrc
+: 1760286829:0;echo $ZSH
+: 1760286842:0;nvim ~/.oh-my-zsh/oh-my-zsh.sh
+: 1760286858:0;nvim .zshrc
+: 1760286874:0;source .zshrc
+: 1760286876:0;ls
+: 1760286881:0;nvim .zshrc
+: 1760286890:0;source .zshrc
+: 1760287010:0;nvim .config/kitty/kitty.conf
+: 1760287017:0;nvim .config/kitty/hyde.conf
+: 1760287046:0;nvim ~/.zprofile
+: 1760287079:0;nvim .config/hypr/keybindings.conf
+: 1760287093:0;nvim .zshrc
+: 1760287147:0;sudo pacman -S foot
+: 1760287156:0;ll
+: 1760287158:0;ls
+: 1760287186:0;echo $SHELL
+: 1760287202:0;cat ~/.zshenv
+: 1760287244:0;cat ~/.zprofile
+: 1760287254:0;zsh -xl\
+
+: 1760287295:0;nvim .config/starship/starship.toml
+: 1760287589:0;nvim ~/.config/zsh/user.zsh
+: 1760287610:0;tmux
+: 1760287742:0;nvim .zshrc
+: 1760375006:0;nvim .config/hypr/monitors.conf
+: 1760375205:0;nvim .config/nvim/lua/plugins/colorscheme.lua
+: 1760457272:0;paru -S slack-desktop
+: 1760459837:0;nvim
+: 1760460569:0;paru -S inter-font
+: 1760460738:0;fc-cache refresh
+: 1760460746:0;fc-cache -fv\
+
+: 1760460850:0;ssh dwarez@pihole.local
+: 1760460891:0;ping 192.168.188.40
+: 1760460901:0;ssh dwarez@192.168.188.40
+: 1760460984:0;ssh dwarez@pihole
+: 1760461403:0;nvim .config/hypr/hypridle.conf
+: 1760461468:0;paru -S albert
+: 1760461491:0;sudo pacman -Syu
+: 1760461502:0;nvim .config/kitty/theme.conf
+: 1760461544:0;nvim .config/kitty/hyde.conf
+: 1760461549:0;nvim .config/kitty/kitty.conf
+: 1760461556:0;nvim .config/kitty/theme.con
+: 1760461560:0;nvim .config/kitty/theme.conf
+: 1760461588:0;paru -S albert
+: 1760461641:0;nvim .config/kitty/theme.conf
+: 1760461718:0;export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=15'\
+
+: 1760461724:0;export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'\
+
+: 1760461741:0;export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'\
+
+: 1760461747:0;export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'\
+
+: 1760461758:0;nvim .zshrc
+: 1760461934:0;ls ~/.hyde.zshrc
+: 1760461945:0;cat .zshenv
+: 1760462000:0;echo $ZDOTDIR
+: 1760462014:0;nvim .config/zsh/user.zsh
+: 1760462034:0;ls -la ~/.config/zsh/\
+
+: 1760462043:0;nvim .config/zsh/.zshrc
+: 1760462143:0;nvim .config/hypr/keybindings.conf
+: 1760462351:0;nvim .config/hypr/userprefs.conf
+: 1760462445:0;12
+: 1760462448:0;nvim .config/hypr/userprefs.conf
+: 1760462530:0;nvim .config/hypr/windowrules.conf
+: 1760462629:0;hyprctl clients | grep -A 10 albert
+: 1760462680:0;nvim .config/hypr/userprefs.conf
+: 1760462704:0;clear
+: 1760462714:0;hyprctl clients | grep -A 10 albert
+: 1760462942:0;nvim .config/hypr/keybindings.conf
+: 1760463060:0;hyprctl layers
+: 1760463221:0;ls .config/rofi
+: 1760463322:0;hyprctl clients | grep -A 15 albert
+: 1760463339:0;nvim .config/hypr/windowrules.conf
+: 1760463365:0;nvim ~/.config/hypr/scripts/albert-wrapper.sh
+: 1760463373:0;chmod +x ~/.config/hypr/scripts/albert-wrapper.sh\
+
+: 1760463380:0;nvim .config/hypr/keybindings.conf
+: 1760463422:0;nvim ~/.config/hypr/scripts/albert-wrapper.sh
+: 1760463429:0;chmod +x ~/.config/hypr/scripts/albert-wrapper.sh\
+
+: 1760463436:0;hyprctl reload
+: 1760463806:0;chezmoi add .config
+: 1760463818:0;chezmoi add .config/albert
+: 1760463822:0;chezmoi add .config/zsh

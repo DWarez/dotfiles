@@ -1,37 +1,19 @@
 return {
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    config = true,
-    opts = {
-      terminal_colors = true,
-      undercurl = true,
-      underline = true,
-      bold = true,
-      italic = {
-        strings = true,
-        emphasis = true,
-        comments = true,
-        operators = false,
-        folds = true,
-      },
-      strikethrough = true,
-      invert_selection = false,
-      invert_signs = false,
-      invert_tabline = false,
-      invert_intend_guides = false,
-      inverse = true,
-      contrast = "",
-      palette_overrides = {},
-      overrides = {},
-      dim_inactive = false,
-      transparent_mode = false,
-    },
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
-  },
+  "navarasu/onedark.nvim",
+  priority = 1000, -- make sure to load this before all the other start plugins
+  config = function()
+    require("onedark").setup({
+      style = "darker",
+    })
+    -- Enable theme
+    require("onedark").load()
+    -- Set cursor color after theme loads
+    vim.opt.termguicolors = true
+    vim.opt.guicursor =
+      "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+
+    -- Override cursor highlight
+    vim.api.nvim_set_hl(0, "Cursor", { fg = "#000000", bg = "#ffffff" })
+    vim.api.nvim_set_hl(0, "lCursor", { fg = "#000000", bg = "#ffffff" })
+  end,
 }
