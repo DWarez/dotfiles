@@ -25,6 +25,10 @@ def --wrapped zc [...rest] { ^zsh  -c ($rest | str join ' ') }   # zsh  one-line
 # cd into a path and immediately list it (omerxx's signature helper).
 def --env cx [arg] { cd $arg; ls }
 
+# -- Path ------------------------------------
+$env.PATH = ($env.PATH | prepend "/usr/local/bin")
+
+
 # ── Aliases: listing (eza, matches the old fish abbreviations) ───
 alias ll = eza -lh  --group-directories-first --icons --git
 alias la = eza -lah --group-directories-first --icons --git

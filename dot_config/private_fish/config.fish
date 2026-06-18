@@ -7,8 +7,8 @@ if status is-interactive
 
     # ── Prompt & tools ──
     starship init fish | source
-    zoxide init fish | source            # z <dir> jumping
-    atuin init fish --disable-up-arrow | source  # Ctrl-R fuzzy history
+    zoxide init fish | source # z <dir> jumping
+    atuin init fish --disable-up-arrow | source # Ctrl-R fuzzy history
 
     # ── Listing (eza) ──
     abbr --add ll 'eza -lh --group-directories-first --icons --git'
@@ -29,13 +29,16 @@ if status is-interactive
     abbr --add gdiff 'git diff'
 
     # ── kubernetes / MLOps ──
-    abbr --add k 'kubectl'
+    abbr --add k kubectl
     abbr --add kg 'kubectl get'
     abbr --add kgpo 'kubectl get pod'
     abbr --add kd 'kubectl describe'
     abbr --add kl 'kubectl logs'
     abbr --add ke 'kubectl exec -it'
     abbr --add ka 'kubectl apply -f'
+
+    # Chezmoi nvim sync
+    abbr --add csn chezmoi_sync_nvim
 end
 
 # ── Environment & PATH (also for non-interactive shells) ──
