@@ -23,6 +23,8 @@ key "S-Left/Right" "previous / next window"
 key "M-H / M-L"  "previous / next window (Alt)"
 key "prefix 1-9" "go to window N"
 key "prefix ,"   "rename window"
+key "prefix < >" "move tab left / right (repeatable)"
+key "prefix !"   "break pane out into its own tab"
 
 hdr "Panes (splits)"
 key "prefix %"   "split vertical  (left|right)"
