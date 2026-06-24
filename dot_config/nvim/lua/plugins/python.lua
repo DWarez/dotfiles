@@ -1,12 +1,14 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        pyright = {},
-        ruff_lsp = {},
-      },
-    },
+    -- opts fn runs after LazyVim's python extra, so these enabled flags win.
+    opts = function(_, opts)
+      opts.servers = opts.servers or {}
+      opts.servers.ty = { mason = false } -- ty is on PATH via `uv tool install ty`
+      for _, s in ipairs({ "pyright", "basedpyright", "ruff", "ruff_lsp" }) do
+        opts.servers[s] = vim.tbl_extend("force", opts.servers[s] or {}, { enabled = false })
+      end
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
