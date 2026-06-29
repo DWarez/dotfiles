@@ -57,6 +57,16 @@
           }
         ]
       }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "msg=$(jq -r '.message // \"\"'); case \"$msg\" in *\"waiting for\"*\"input\"*) exit 0 ;; esac; osascript -e 'on run argv' -e 'display notification (item 1 of argv) with title \"Claude Code\" sound name \"Glass\"' -e 'end run' \"$msg\""
+          }
+        ]
+      }
     ]
   },
   "permissions": {
