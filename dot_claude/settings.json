@@ -50,16 +50,10 @@
             "args": [
               "hook-stop"
             ]
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "hooks": [
+          },
           {
             "type": "command",
-            "command": "msg=$(jq -r '.message // \"Claude needs your input\"'); osascript -e 'on run argv' -e 'display notification (item 1 of argv) with title \"Claude Code\" sound name \"Glass\"' -e 'end run' \"$msg\""
+            "command": "osascript -e 'display notification \"Finished — your turn\" with title \"Claude Code\" sound name \"Glass\"'"
           }
         ]
       }
