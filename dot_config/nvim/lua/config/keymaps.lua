@@ -10,3 +10,9 @@ vim.keymap.set("n", "<leader>ue", function()
   vim.diagnostic.enable(not on, { bufnr = buf })
   vim.notify("Diagnostics " .. (on and "OFF" or "ON") .. " (this buffer)", vim.log.levels.INFO)
 end, { desc = "Toggle Diagnostics (buffer)" })
+
+-- Toggle autoformat
+vim.keymap.set("n", "<leader>uf", function()
+  vim.g.autoformat = not vim.g.autoformat
+  vim.notify("Autoformat " .. (vim.g.autoformat and "ON" or "OFF"), vim.log.levels.INFO)
+end, { desc = "Toggle Autoformat" })
