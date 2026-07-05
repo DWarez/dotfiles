@@ -17,9 +17,9 @@ return {
   opts = {
     picker = {
       sources = {
-        -- ignored = false (default) still honors .gitignore
-        grep = { hidden = true, exclude = exclude },
-        files = { hidden = true, exclude = exclude },
+        -- ignored = true searches .gitignore'd paths too; exclude list keeps the noise out
+        grep = { hidden = true, ignored = true, exclude = exclude },
+        files = { hidden = true, ignored = true, exclude = exclude },
       },
     },
   },
