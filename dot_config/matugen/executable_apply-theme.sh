@@ -33,8 +33,14 @@ fi
 config="$HOME/.config/matugen/config.toml"
 
 # matugen v4 needs a preference when an image yields multiple source colours.
-# "saturation" picks the most vivid accent. Override with MATUGEN_PREFER.
-matugen -c "$config" image "$wallpaper" --prefer "${MATUGEN_PREFER:-saturation}"
+# --source-color-index 0 picks the MOST DOMINANT colour (by pixel count), which
+# follows the wallpaper's actual hue. (The previous --prefer saturation picked
+# the most vivid pixel, which on mostly-dark cool wallpapers would surface a
+# warm minority accent and produce a warm palette from a cool image.)
+# Override with MATUGEN_INDEX=N (0=dominant, 1=2nd-most, …) or MATUGEN_PREFER=…
+matugen -c "$config" image "$wallpaper" \
+  ${MATUGEN_PREFER:+--prefer "$MATUGEN_PREFER"} \
+  ${MATUGEN_INDEX:---source-color-index 0}
 
 # Optional: set macOS desktop wallpaper too.
 if [[ "$(uname)" == "Darwin" ]] && [[ "${SET_WALLPAPER:-0}" == "1" ]]; then

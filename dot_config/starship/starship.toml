@@ -1,0 +1,304 @@
+# Graphite — hand-authored static metallic palette for starship.
+# Decoupled from matugen since 2026-07. Matches tmux/graphite.conf and
+# kitty/current-theme.conf. Edit this file directly; it is NOT regenerated.
+# (The matugen-template.toml is kept on disk as a revert path.)
+#
+# Powerline prompt tuned for MLOps (git, python, docker, kubernetes, aws).
+# Steel gradient: the 4 bands go dark → bright → dark (primary → tertiary →
+# primary), like light reflecting off a brushed-metal cylinder.
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+command_timeout = 1000
+
+# Configures the format of the prompt.
+format = """
+[](color_red0)\
+$os\
+$username\
+[](bg:color_orange fg:color_red0)\
+$directory\
+[](fg:color_orange bg:color_yellow)\
+$git_branch\
+$git_status\
+[](fg:color_yellow bg:color_green)\
+$c\
+$dotnet\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+$elixir\
+$elm\
+$gradle\
+$julia\
+$nim\
+$scala\
+[](fg:color_green bg:color_cyan)\
+$docker_context\
+$kubernetes\
+$aws\
+[ ](color_cyan)\
+$fill\
+([ ](mono4)\
+$time\
+$battery\
+[](mono4))\
+$line_break$character"""
+
+# Static graphite palette (matches tmux/kitty).
+palette = 'graphite'
+
+[palettes.graphite]
+mono0 = '#c2c8cf'
+mono1 = '#6e7682'
+mono2 = '#3a4148'
+mono3 = '#23262c'
+mono4 = '#23262c'
+# Powerline bands — steel gradient: dark (primary) → bright (tertiary) → dark.
+color_red0 = '#8b939e'   # OS + username band
+color_red1 = '#c4746e'   # warnings (battery low, error char) — muted brick
+color_green = '#d4dae0'  # dev-language band (brightest — focus on active lang)
+color_yellow = '#d4dae0' # git band
+color_blue = '#8b939e'
+color_purple = '#9a8b9e'  # vim replace mode — faint mauve to distinguish
+color_cyan = '#8b939e'   # MLOps band (docker/k8s/aws)
+color_orange = '#8b939e' # directory band
+syntax_fg = '#c2c8cf'
+syntax_bg = '#16181c'
+color_bg2 = '#23262c'
+syntax_gutter = '#3a4148'
+syntax_accent = '#8b939e'
+
+# Module that displays the current OS.
+[os]
+disabled = false
+style = "bg:color_red0 fg:syntax_bg"
+format = '[ $symbol ]($style)'
+
+[os.symbols]
+Alpine = ""
+Amazon = ""
+Android = "󰀲"
+Arch = ""
+CentOS = ""
+Debian = "󰣚"
+EndeavourOS = ""
+Fedora = "󰣛"
+FreeBSD = "󰣠"
+Gentoo = "󰣨"
+Illumos = ""
+Linux = "󰌽"
+Macos = "󰀵"
+Manjaro = "󱘊"
+Mint = "󰣭"
+NixOS = "󱄅"
+OpenBSD = ""
+openSUSE = ""
+Pop = ""
+Raspbian = ""
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Redox = "R"
+Solus = ""
+SUSE = ""
+Ubuntu = "󰕈"
+Unknown = ""
+Windows = "󰍲"
+
+# Module that displays the current username.
+[username]
+show_always = true
+style_user = "bold bg:color_red0 fg:syntax_bg"
+style_root = "bold italic bg:color_red0 fg:syntax_bg"
+format = '[ $user ]($style)'
+
+# Module that displays the current directory.
+[directory]
+style = "italic fg:syntax_bg bg:color_orange"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+# Module that displays the current git branch.
+[git_branch]
+symbol = ""
+style = "bg:color_yellow"
+format = '[[ $symbol $branch ](fg:syntax_bg bg:color_yellow)]($style)'
+
+# Module that displays the current git status.
+[git_status]
+style = "bg:color_yellow"
+format = '[[($all_status$ahead_behind )](fg:syntax_bg bg:color_yellow)]($style)'
+
+# Language specific modules
+[nodejs]
+symbol = ""
+style = "bg:color_green"
+format = '[[ $symbol( $version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[c]
+symbol = " "
+style = "bg:color_green"
+format = '[[ $symbol( $version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[dotnet]
+symbol = "󰪮"
+style = "bg:color_green"
+format = '[[ $symbol( $version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:color_green"
+format = '[[ $symbol( $version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:color_green"
+format = '[[ $symbol( $version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[php]
+symbol = " "
+style = "bg:color_green"
+format = '[[ $symbol( $version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[java]
+symbol = " "
+style = "bg:color_green"
+format = '[[ $symbol( $version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[kotlin]
+symbol = " "
+style = "bg:color_green"
+format = '[[ $symbol( $version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:color_green"
+format = '[[ $symbol( $version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[python]
+symbol = " "
+style = "bg:color_green"
+format = '[[ $symbol( $version)(\($virtualenv\)) ](fg:syntax_bg bg:color_green)]($style)'
+
+[elixir]
+symbol = " "
+style = "bg:color_green"
+format = '[[ $symbol ($version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[elm]
+symbol = " "
+style = "bg:color_green"
+format = '[[ $symbol ($version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[gradle]
+symbol = " "
+style = "bg:color_green"
+format = '[[ $symbol ($version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[julia]
+symbol = " "
+style = "bg:color_green"
+format = '[[ $symbol ($version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[nim]
+symbol = "󰆥 "
+style = "bg:color_green"
+format = '[[ $symbol ($version) ](fg:syntax_bg bg:color_green)]($style)'
+
+[scala]
+symbol = " "
+style = "bg:color_green"
+format = '[[ $symbol ($version) ](fg:syntax_bg bg:color_green)]($style)'
+
+# ── MLOps context: docker / kubernetes / aws (cyan band) ──────────
+[docker_context]
+symbol = " "
+style = "bg:color_cyan"
+format = '[[ $symbol( $context) ](fg:syntax_bg bg:color_cyan)]($style)'
+
+[kubernetes]
+disabled = false
+symbol = "󱃾 "
+style = "bg:color_cyan"
+format = '[[ $symbol$context(:$namespace) ](fg:syntax_bg bg:color_cyan)]($style)'
+detect_files = ['Dockerfile', 'Chart.yaml', 'kustomization.yaml', 'skaffold.yaml']
+detect_extensions = ['yaml', 'yml', 'tf']
+
+[aws]
+disabled = false
+symbol = " "
+style = "bg:color_cyan"
+format = '[[ $symbol($profile )(\($region\)) ](fg:syntax_bg bg:color_cyan)]($style)'
+
+# Module that fills the space between the left and right segments.
+[fill]
+symbol = " "
+
+# Module that displays the time.
+[time]
+disabled = false
+use_12hr = true
+style = "bg:mono4"
+format = '[[ 󰥔 $time ](fg:syntax_fg bg:mono4)]($style)'
+
+# Module that displays the battery level and status.
+[battery]
+format = '[$symbol $percentage ]($style)'
+
+[[battery.display]]
+threshold = 10
+style = "bold bg:mono4 fg:color_red1"
+discharging_symbol = "󰁺"
+charging_symbol = "󰢜"
+
+[[battery.display]]
+threshold = 20
+style = "bold bg:mono4 fg:color_red0"
+discharging_symbol = "󰁻"
+charging_symbol = "󰂆"
+
+[[battery.display]]
+threshold = 30
+style = "bold bg:mono4 fg:color_yellow"
+discharging_symbol = "󰁼"
+charging_symbol = "󰂇"
+
+[[battery.display]]
+threshold = 50
+style = "bold bg:mono4 fg:color_yellow"
+discharging_symbol = "󰁾"
+charging_symbol = "󰢝"
+
+[[battery.display]]
+threshold = 80
+style = "bold bg:mono4 fg:color_green"
+discharging_symbol = "󰂁"
+charging_symbol = "󰂊"
+
+[[battery.display]]
+style = "bold bg:mono4 fg:color_green"
+discharging_symbol = "󰁹"
+charging_symbol = "󰂅"
+threshold = 100
+
+# Character — shows vim mode (req: vim mode visibility).
+[character]
+success_symbol = '[󰅂](bold fg:syntax_accent)'
+error_symbol = '[](bold fg:color_red1)'
+vimcmd_symbol = '[ N 󰅁](bold fg:syntax_accent)'
+vimcmd_replace_one_symbol = '[ R 󰅁](bold fg:color_purple)'
+vimcmd_replace_symbol = '[ R 󰅁](bold fg:color_purple)'
+vimcmd_visual_symbol = '[ V 󰅁](bold fg:color_yellow)'
