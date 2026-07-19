@@ -1,5 +1,6 @@
 return {
-  -- One Dark Pro — the active colorscheme (crisp, well-saturated, distinct hues).
+  -- One Dark Pro — alternative colorscheme (cold blue/cyan). Not active;
+  -- switch with :colorscheme onedark. Kept installed as a fallback.
   {
     "olimorris/onedarkpro.nvim",
     lazy = false,
@@ -35,11 +36,14 @@ return {
     end,
   },
 
-  -- Use One Dark Pro as the active colorscheme.
+  -- Active colorscheme: Kanagawa-dragon — muted steel/grey palette that
+  -- reads as graphite and sits coherently beside the graphite terminal layer
+  -- (tmux/kitty/starship). One Dark Pro stays installed as an alternative:
+  --   :colorscheme onedark
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "onedark",
+      colorscheme = "kanagawa-dragon",
     },
   },
 }
