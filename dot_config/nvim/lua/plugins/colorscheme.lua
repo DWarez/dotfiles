@@ -19,7 +19,20 @@ return {
     lazy = false,
     priority = 999,
     opts = {
-      compile = true,
+      transparent = true, -- let kitty's translucent/blurred background show through
+      overrides = function(colors)
+        -- Clear gutter/chrome backgrounds so the blur shows through the whole
+        -- editor chrome, matching One Dark Pro's transparency scope (Normal,
+        -- SignColumn, FoldColumn, LineNr, EndOfBuffer all see-through).
+        return {
+          SignColumn = { bg = "NONE" },
+          FoldColumn = { bg = "NONE" },
+          LineNr = { bg = "NONE" },
+          EndOfBuffer = { bg = "NONE" },
+          NormalNC = { bg = "NONE" },
+          MsgArea = { bg = "NONE" },
+        }
+      end,
       undercurl = true,
       commentStyle = { italic = true },
       keywordStyle = { italic = true },
