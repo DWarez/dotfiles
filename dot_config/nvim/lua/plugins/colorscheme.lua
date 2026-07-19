@@ -49,14 +49,63 @@ return {
     end,
   },
 
-  -- Active colorscheme: Kanagawa-dragon — muted steel/grey palette that
-  -- reads as graphite and sits coherently beside the graphite terminal layer
-  -- (tmux/kitty/starship). One Dark Pro stays installed as an alternative:
-  --   :colorscheme onedark
+  -- Active colorscheme: zero.nvim with a graphite palette override.
+  -- zero.nvim is normally a green-signature theme; we repalette it via
+  -- on_palette to the exact steel tones used by tmux/kitty/starship so the
+  -- whole terminal layer is coherent graphite. Syntax accents stay
+  -- distinguishable via a steel gradient (keyword/string/function/type map
+  -- to different steel tones) + muted brick for errors and faint mauve for
+  -- types. Switch to a stock theme anytime: :colorscheme onedark / kanagawa-dragon
+  {
+    "czrd/zero.nvim",
+    lazy = false,
+    priority = 1001, -- above onedarkpro (1000) and kanagawa (999)
+    opts = {
+      style = "dark",
+      transparent = true, -- let kitty's translucent/blurred background show through
+      terminal_colors = true,
+      on_palette = function(p)
+        -- Graphite palette — matches tmux/graphite.conf + kitty + starship.
+        -- Steel gradient for syntax differentiation; muted brick for errors.
+        p.bg             = "#16181c" -- surface (transparent via transparent=true)
+        p.bg_dark        = "#111316"
+        p.bg_float       = "#23262c" -- surface_high (popups, floats)
+        p.bg_cursorline  = "#1f2127"
+        p.bg_visual      = "#2a2f36"
+        p.bg_selection   = "#2a2f36"
+        p.bg_statusline  = "#23262c"
+        p.border         = "#3a4148" -- outline
+        p.fg             = "#c2c8cf" -- on_surface
+        p.fg_dim         = "#8b939e" -- primary steel
+        p.fg_gutter      = "#6e7682" -- slate
+        p.comment        = "#6e7682"
+        -- Syntax accents (steel gradient + two muted hues for differentiation)
+        p.green   = "#8b939e" -- keywords   -> mid steel
+        p.gold    = "#d4dae0" -- strings    -> pale steel (sheen)
+        p.yellow  = "#d4dae0"
+        p.blue    = "#c2c8cf" -- functions  -> bright steel
+        p.violet  = "#9a8b9e" -- types      -> faint mauve
+        p.orange  = "#b8a878" -- constants  -> muted bronze
+        p.teal    = "#6e7682" -- operators  -> slate
+        p.red     = "#c4746e" -- errors     -> muted brick
+        p.error   = "#c4746e"
+        p.warn    = "#c4746e"
+        p.info    = "#8b939e"
+        p.hint    = "#6e7682"
+        p.ok      = "#8b939e"
+        p.git_add    = "#8b939e"
+        p.git_change = "#d4dae0"
+        p.git_delete = "#c4746e"
+      end,
+    },
+  },
+
+  -- Set zero as the active colorscheme (loaded by priority; LazyVim just
+  -- ensures the name is resolved at install time).
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa-dragon",
+      colorscheme = "zero",
     },
   },
 }
