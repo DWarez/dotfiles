@@ -97,6 +97,15 @@ return {
         p.git_change = "#d4dae0"
         p.git_delete = "#c4746e"
       end,
+      -- Search highlighting: zero.nvim defaults Search to fg=fg(bg=yellow), which
+      -- is light-on-light under this graphite palette and unreadable. Override so
+      -- all matches are dark text on the pale-steel sheen; the current match
+      -- (IncSearch/CurSearch) inverts to bright text on dark for emphasis.
+      on_highlights = function(hl, p)
+        hl.Search = { fg = p.bg_dark, bg = p.yellow }
+        hl.IncSearch = { fg = p.yellow, bg = p.bg_dark, bold = true }
+        hl.CurSearch = { fg = p.yellow, bg = p.bg_dark, bold = true }
+      end,
     },
   },
 
