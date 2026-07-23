@@ -4,5 +4,5 @@
 
 -- Disable automatic completion popup
 vim.opt.completeopt = "menu,menuone,noselect"
--- (gruvbox settings removed — switched to rose-pine)
+-- (colorscheme settings managed by plugins/colorscheme.lua — tokyonight)
 vim.o.background = "dark"

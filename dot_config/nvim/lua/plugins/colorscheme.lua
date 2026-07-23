@@ -1,37 +1,45 @@
 return {
-  -- Rose Pine — active colorscheme.
-  -- Chosen for CVD safety: no green-yellow hue competition in syntax.
-  -- pine (#31748f) is teal-blue, gold (#f6c177) is warm amber — maximally
-  -- separated in both hue and luminance. Transparency lets kitty's
-  -- background_blur show through.
+  -- Tokyo Night — active colorscheme.
+  -- Chosen for CVD safety: the main syntax categories use distinct,
+  -- well-separated hues — strings=green, functions=blue, types=cyan,
+  -- keywords=purple, constants=orange. No green-yellow competition.
+  -- The two places Tokyo Night uses yellow (function parameters and
+  -- documentation strings) are remapped below to orange/cyan so the
+  -- palette is fully CVD-safe. Transparency lets kitty's background_blur
+  -- show through.
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {
-      variant = "main",
-      dark_variant = "main",
-      dim_inactive_windows = false,
-      extend_background_behind_borders = true,
-      enable = {
-        terminal = true,
-        legacy_highlights = true,
-        migrations = true,
-      },
+      style = "night",         -- darkest variant
+      transparent = true,
+      terminal_colors = true,
       styles = {
-        bold = true,
-        italic = true,
-        transparency = true,
+        comments = { italic = true },
+        keywords = { italic = true },
+        functions = {},
+        variables = {},
+        sidebars = "transparent",
+        floats = "transparent",
       },
+      on_highlights = function(hl, c)
+        -- CVD safety: remap the two yellow syntax uses so no green-yellow
+        -- discrimination is ever required.
+        --   @variable.parameter  yellow -> orange (constants color)
+        --   @string.documentation yellow -> cyan (keyword color)
+        hl["@variable.parameter"] = { fg = c.orange }
+        hl["@variable.parameter.builtin"] = { fg = c.orange }
+        hl["@string.documentation"] = { fg = c.cyan }
+      end,
     },
   },
 
-  -- Set rose-pine as the active colorscheme.
+  -- Set tokyonight as the active colorscheme.
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine",
+      colorscheme = "tokyonight-night",
     },
   },
 }
