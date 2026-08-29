@@ -5,6 +5,10 @@ if status is-interactive
     # ── Vim mode on the command line ──
     fish_vi_key_bindings
 
+    # ── Autosuggestions ──
+    # fish's default #555 is unreadable on dark themes
+    set -g fish_color_autosuggestion 7f8c9a  # readable on dark bgs; brblack breaks when a theme sets color8 ≈ background (noctalia One Dark)
+
     # ── Prompt & tools ──
     starship init fish | source
     zoxide init fish | source # z <dir> jumping
